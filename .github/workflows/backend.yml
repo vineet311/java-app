@@ -20,6 +20,9 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
+      - name: mvn install
+        run : |
+          mvn -U clean install
 
       - name: Build JAR
         run: |
