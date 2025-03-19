@@ -1,0 +1,8 @@
+@RequestMapping("/api")
+public class MessageController {
+
+    @GetMapping("/message")
+    public String getMessage() {
+        return "Hello from Backend!";
+    }
+}
