@@ -8,10 +8,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
   "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
 }
 
 }
