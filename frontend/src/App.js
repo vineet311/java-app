@@ -1,11 +1,19 @@
-
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
+  const [message, setMessage] = useState("Loading...");
+
+  useEffect(() => {
+    fetch("http://backend:8080/api/hello")  // Use service name inside the cluster
+      .then(response => response.json())
+      .then(data => setMessage(data.message))
+      .catch(error => setMessage("Error connecting to backend!"));
+  }, []);
+
   return (
     <div>
-      <h1>Hello, React!</h1>
+      <h1>React Frontend</h1>
+      <p>Backend says: {message}</p>
     </div>
   );
 }
