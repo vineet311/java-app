@@ -4,7 +4,7 @@ function App() {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
-    fetch("http://backend:8080/api/hello")  // Use service name inside the cluster
+    fetch("http://backend.default.svc.cluster.local:8080/api/health")  // Use service name inside the cluster
       .then(response => response.json())
       .then(data => setMessage(data.message))
       .catch(error => setMessage("Error connecting to backend!"));
