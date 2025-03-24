@@ -1,8 +1,14 @@
-FROM node:16-alpine
+# Use Node.js as build stage
+FROM node:18 AS build
 WORKDIR /app
-COPY package.json ./
+COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-CMD ["npm", "start"]
+
+# Use Nginx for serving static files
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
