@@ -4,7 +4,7 @@ function App() {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
-    fetch("http://backend.default.svc.cluster.local:8080/api/message")
+    fetch("http://backend:30286/api/message")
       .then((response) => response.text())
       .then((data) => setMessage(data))
       .catch((error) => console.error("Error fetching message:", error));
